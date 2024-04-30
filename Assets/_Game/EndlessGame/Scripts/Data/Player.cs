@@ -83,6 +83,23 @@ namespace VANH.EndlessGame
             m_anim.SetBool(CharacterAnim.Land.ToString(), false);
             m_anim.SetTrigger(CharacterAnim.Idle.ToString());
         }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag(GameTag.Block.ToString()))
+            {
+                Debug.Log("Block");
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag(GameTag.DeadZone.ToString()))
+            {
+                Debug.Log("Dezo");
+            }
+        }
+
         private void OnDrawGizmos()
         {
             m_centerPos = new Vector3(transform.position.x, transform.position.y - blockCheckingOffset, transform.position.z);
