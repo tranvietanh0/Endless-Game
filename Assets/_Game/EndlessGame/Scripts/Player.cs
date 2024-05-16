@@ -88,6 +88,11 @@ namespace VANH.EndlessGame
         {
             if (other.gameObject.CompareTag(GameTag.Block.ToString()))
             {
+                Block block = other.gameObject.GetComponent<Block>();
+                if (block != null)
+                {
+                    block.PlayerLand();
+                }
                 Debug.Log("Block");
             }
         }
@@ -96,7 +101,7 @@ namespace VANH.EndlessGame
         {
             if (other.gameObject.CompareTag(GameTag.DeadZone.ToString()))
             {
-                Debug.Log("Dezo");
+                Debug.Log("Deadzone");
             }
         }
 
